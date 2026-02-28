@@ -61,13 +61,11 @@ function sadPrint(string){
  console.log("😢: "+string);
 }
 
-//This high-order function adds 2 parameters and passes the answer to the callback
 function add(a, b, callback){
    let ans = a + b;
-   callback(ans);// call the callback and pass the answer to it
+   callback(ans);
 }
 
-//call add passing the callbacks to it
 
 add(5, 10, happyPrint);
 add(11, 12, sadPrint);
@@ -75,3 +73,116 @@ add(11, 12, sadPrint);
 let arr = [ -5, 16, 33, 42, 103, 344];
 
 console.log(arr.includes(-5));
+
+
+let bob = {
+  fname: "bob",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1603',
+      grades: [ 89, 34, 67 ]
+    },
+    {
+      course: 'INFO 1601',
+      grades: [ 89, 34, 67 ]
+    }
+  ]
+};
+
+let sally = {
+  fname: "sally",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1601',
+      grades: [ 100, 89, 79 ]
+    }
+  ]
+};
+
+let paul = {
+  fname: "paul",
+  lname: "smith",
+  age: 18,
+  height: 6,
+  transcript:[
+    {
+      course: 'INFO 1600',
+      grades: [ 89, 34, 67 ]
+    }
+  ]
+};
+
+
+const students = [bob, sally, paul];
+
+
+
+function createPerson(name, height, weight) {
+  return { name: name, height: height, weight: weight };
+}
+
+function calcBMI(weight, height) {
+  return weight / (height * height);
+}
+
+function avgBMI(people) {
+  let sum = 0;
+  for (let person of people) {
+    sum += calcBMI(person.weight, person.height);
+  }
+  return sum / people.length;
+}
+
+
+let people = [
+  createPerson("Sally", 60, 2.5),
+  createPerson("Ben", 81, 3),
+  createPerson("Shelly", 50, 1.7)
+];
+console.log(avgBMI(people));
+
+function getAverageGrade(student, course){
+for (let i=0; i<student.transcript.length; i++){
+  if(student.transcript[i].course === course){
+    let sum = 0;
+    for(let j=0; j<student.transcript[i].grades.length; j++){
+      sum += student.transcript[i].grades[j];
+    }
+    return sum / student.transcript[i].grades.length;
+  }
+}
+return -1;
+}
+
+getAssignmentMark(student, course, num){
+for (let i=0; i<student.transcript.length; i++){
+  if(student.transcript[i].course === course){
+    if(num < student.transcript[i].grades.length && num >= 0){
+      return student.transcript[i].grades[num];
+    }
+  }
+}
+
+return -1;
+}
+
+
+function averageAssessment(students, courseName, assignment){
+
+
+
+
+
+
+
+
+
+
+
+}
