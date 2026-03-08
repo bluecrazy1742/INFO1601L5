@@ -147,7 +147,7 @@ let people = [
 ];
 console.log(avgBMI(people));
 
-function getAverageGrade(student, course){
+function getAverageGrade(student, course) {
 for (let i=0; i<student.transcript.length; i++){
   if(student.transcript[i].course === course){
     let sum = 0;
@@ -160,7 +160,7 @@ for (let i=0; i<student.transcript.length; i++){
 return -1;
 }
 
-getAssignmentMark(student, course, num){
+function getAssignmentMark(student, course, num) {
 for (let i=0; i<student.transcript.length; i++){
   if(student.transcript[i].course === course){
     if(num < student.transcript[i].grades.length && num >= 0){
@@ -175,6 +175,69 @@ return -1;
 
 function averageAssessment(students, courseName, assignment){
 
+let arr = [12, 33, 4, 5, -4, 8, 19, 25];
+                
+//map() creates a new array from the elements of one without changing the old one
+function double(num){
+  return num * 2;
+}
+
+let doubledArr = arr.map(double); 
+console.log(doubledArr);
+
+function isOdd(num){
+  return element%2 !== 0; 
+}
+//Filter takes a test condition and returns only the element which 
+//make the condition true
+let odds = arr.filter(isOdd);
+console.log(odds);
+
+//Returns true or false if any of the elements of the array 
+//meets a specified condition
+function has5Factor(){
+  return ele % 5 === 0;
+}
+
+let hasFiveFactor = arr.some(has5Factor);
+console.log(hasFiveFactor);
+
+function intCompare(a, b){
+ return a - b;
+}
+
+//sort function must return either 0, +ve, -ve
+let ascending = arr.sort(intCompare)
+console.log(ascending);
+
+  
+
+ function createPerson(name, height, weight) {
+  return { name: name, height: height, weight: weight };
+}
+
+function calcBMI(weight, height) {
+  return weight / (height * height);
+}
+
+function avgBMI(people) {
+  let sum = 0;
+  for (let person of people) {
+    //sum the bmi of each person
+    sum += calcBMI(person.weight, person.height);
+  }
+  //calculate average
+  return sum / people.length;
+}
+
+//create a collection of people
+let people = [
+  createPerson("Sally", 60, 2.5),
+  createPerson("Ben", 81, 3),
+  createPerson("Shelly", 50, 1.7)
+];
+
+console.log(avgBMI(people)); 
 
 
 
